@@ -20,7 +20,7 @@ Install the package.
 
     $ php composer.phar install
 
-In the `app/config/app.php` file, register the `LaravelOpensslEncryptionServiceProvider` and comment the default `EncryptionServiceProvider.
+In the `app/config/app.php` file, register the `LaravelOpensslEncryptionServiceProvider` and comment the default `EncryptionServiceProvider`.
 
     'providers' => array(
     
