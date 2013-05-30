@@ -1,6 +1,6 @@
 {
     "name": "neoxia/laravel-openssl-encryption",
-    "description": "Laravel 4 encryption package that use the PHP openssl extension",
+    "description": "Laravel 4 encryption package that uses the PHP openssl extension",
     "keywords": ["laravel", "openssl"],
     "authors": [
         {

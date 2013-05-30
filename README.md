@@ -20,7 +20,7 @@ Install the package.
 
     $ php composer.phar install
 
-In the `app/config/app.php` file, register the `LaravelOpensslEncryptionServiceProvider` and comment the default `EncryptionServiceProvider`.
+In the `app/config/app.php` file, register the `LaravelOpensslEncryptionServiceProvider` and comment the default `EncryptionServiceProvider.
 
     'providers' => array(
     
@@ -28,3 +28,18 @@ In the `app/config/app.php` file, register the `LaravelOpensslEncryptionServiceP
     	//'Illuminate\Encryption\EncryptionServiceProvider',
     	'Neoxia\LaravelOpensslEncryption\LaravelOpensslEncryptionServiceProvider',
     	...
+
+One more thing ...
+
+Currently, Laravel 4 checks if the PHP *mcrypt** extension is loaded and die if it is not !
+So, to complete the installation, we have to bypass this check.
+But unfortunately, this check is done in the `Illuminate\Foundation\start.php` script, at the heart of the framework bootstrap process.
+
+To bypass the check, change the `start.php` script in the `vendor\laravel\framework\src\Illuminate\Foundation` folder as follow.
+
+    if ( false and ! extension_loaded('mcrypt'))
+    {
+    	die('Laravel requires the Mcrypt PHP extension.'.PHP_EOL);
+    
+    	exit(1);
+    }
