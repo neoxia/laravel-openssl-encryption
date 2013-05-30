@@ -15,3 +15,16 @@ Add the neoxia/laravel-openssl-encryption package to your composer.json file.
     	"laravel/framework": "4.0.*",
     	"neoxia/laravel-openssl-encryption": "1.0.*"
     },
+
+Install the package.
+
+    $ php composer.phar install
+
+In the app/config/app.php file, register the LaravelOpensslEncryptionServiceProvider and comment the default EncryptionServiceProvider.
+
+    'providers' => array(
+    
+    	...
+    	//'Illuminate\Encryption\EncryptionServiceProvider',
+    	'Neoxia\LaravelOpensslEncryption\LaravelOpensslEncryptionServiceProvider',
+    	...
